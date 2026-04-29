@@ -1,6 +1,6 @@
 {
   "name": "ai-usage-monitor",
-  "displayName": "AI Usage Monitor",
+  "displayName": "AI Quota Dashboard",
   "description": "Monitor AI Coding Plan quota usage (GLM, Kimi, etc.)",
   "version": "0.1.0",
   "publisher": "Zheng404",
@@ -32,26 +32,26 @@
     "commands": [
       {
         "command": "aiUsageMonitor.refresh",
-        "title": "AI Usage Monitor: 刷新配额",
+        "title": "AI Quota Dashboard:刷新配额",
         "icon": "$(refresh)"
       },
       {
         "command": "aiUsageMonitor.openDashboard",
-        "title": "AI Usage Monitor: 打开配额面板",
+        "title": "AI Quota Dashboard:打开配额面板",
         "icon": "$(dashboard)"
       },
       {
         "command": "aiUsageMonitor.resetData",
-        "title": "AI Usage Monitor: 重置数据"
+        "title": "AI Quota Dashboard:重置数据"
       },
       {
         "command": "aiUsageMonitor.openSettings",
-        "title": "AI Usage Monitor: 打开设置",
+        "title": "AI Quota Dashboard:打开设置",
         "icon": "$(gear)"
       },
       {
         "command": "aiUsageMonitor.clearHistory",
-        "title": "AI Usage Monitor: 清除历史"
+        "title": "AI Quota Dashboard:清除历史"
       }
     ],
     "viewsContainers": {
@@ -74,7 +74,7 @@
       ]
     },
     "configuration": {
-      "title": "AI Usage Monitor",
+      "title": "AI Quota Dashboard",
       "properties": {
         "aiUsageMonitor.refreshInterval": {
           "type": "number",

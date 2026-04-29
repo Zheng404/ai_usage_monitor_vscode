@@ -1,4 +1,4 @@
-# AI Usage Monitor
+# AI Quota Dashboard
 
 > VSCode 扩展插件 — AI Coding Plan 配额用量仪表盘。实时追踪 GLM Coding Plan、Kimi Membership 等 AI 服务的配额消耗情况，帮助开发者避免超额使用。
 
@@ -43,7 +43,7 @@ npm run compile
 
 ### VSCode 市场（待发布）
 
-搜索 "AI Usage Monitor" 并安装。
+搜索 "AI Quota Dashboard" 并安装。
 
 ## 快速开始
 
@@ -61,11 +61,11 @@ npm run compile
 
 | 命令 | 功能 |
 |------|------|
-| `AI Usage Monitor: 刷新配额` | 清空缓存并重新拉取所有服务数据 |
-| `AI Usage Monitor: 打开配额面板` | 聚焦侧边栏仪表盘 |
-| `AI Usage Monitor: 打开设置` | 聚焦仪表盘并切换到设置标签 |
-| `AI Usage Monitor: 清除历史` | 仅清除历史数据 |
-| `AI Usage Monitor: 重置数据` | 删除所有配置、API Key、历史记录 |
+| `AI Quota Dashboard:刷新配额` | 清空缓存并重新拉取所有服务数据 |
+| `AI Quota Dashboard:打开配额面板` | 聚焦侧边栏仪表盘 |
+| `AI Quota Dashboard:打开设置` | 聚焦仪表盘并切换到设置标签 |
+| `AI Quota Dashboard:清除历史` | 仅清除历史数据 |
+| `AI Quota Dashboard:重置数据` | 删除所有配置、API Key、历史记录 |
 
 ### 全局设置
 

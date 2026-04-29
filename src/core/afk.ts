@@ -7,7 +7,7 @@ export class AfkDetector {
 		this.lastActiveTime = Date.now();
 		if (this.afk) {
 			this.afk = false;
-			console.log('[AI Usage Monitor] 用户已恢复活动');
+			console.log('[AI Quota Dashboard] 用户已恢复活动');
 		}
 	}
 
@@ -16,7 +16,7 @@ export class AfkDetector {
 		const isAfk = Date.now() - this.lastActiveTime > thresholdSec * 1000;
 		if (isAfk && !this.afk) {
 			this.afk = true;
-			console.log('[AI Usage Monitor] 用户已进入 AFK 状态');
+			console.log('[AI Quota Dashboard] 用户已进入 AFK 状态');
 		}
 		return isAfk;
 	}

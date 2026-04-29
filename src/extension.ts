@@ -105,12 +105,12 @@ async function pullService(profileId: string, bar: StatusBar, ctx: vscode.Extens
 async function pullAll(bar: StatusBar, ctx: vscode.ExtensionContext) {
 	// AFK 检测
 	if (afkDetector.checkAfk(config.afkThreshold())) {
-		console.log('[AI Usage Monitor] AFK 中，跳过刷新');
+		console.log('[AI Quota Dashboard] AFK 中，跳过刷新');
 		return;
 	}
 
 	if (refreshing) {
-		console.log('[AI Usage Monitor] 刷新进行中，跳过本次请求');
+		console.log('[AI Quota Dashboard] 刷新进行中，跳过本次请求');
 		return;
 	}
 	refreshing = true;
@@ -231,7 +231,7 @@ function registerDataCommands(ctx: vscode.ExtensionContext, bar: StatusBar) {
 					await updateView();
 				}
 			} catch (e) {
-				console.error('[AI Usage Monitor] 拉取详情失败:', e instanceof Error ? e.message : e);
+				console.error('[AI Quota Dashboard] 拉取详情失败:', e instanceof Error ? e.message : e);
 			}
 		})
 	);
@@ -368,7 +368,7 @@ async function startPolling(loop: () => Promise<void>) {
 }
 
 export async function activate(ctx: vscode.ExtensionContext) {
-	console.log('AI Usage Monitor: activate');
+	console.log('AI Quota Dashboard: activate');
 
 	config.setContext(ctx);
 	await config.initDefaults();
@@ -386,7 +386,7 @@ export async function activate(ctx: vscode.ExtensionContext) {
 		try {
 			await pullAll(bar, ctx);
 		} catch (err) {
-			console.error('[AI Usage Monitor] 轮询异常:', err);
+			console.error('[AI Quota Dashboard] 轮询异常:', err);
 		}
 	};
 

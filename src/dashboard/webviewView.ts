@@ -85,7 +85,7 @@ export class DashboardWebviewViewProvider
           }
         }
       } catch (err) {
-        console.error('[AI Usage Monitor] Webview 消息处理异常:', err);
+        console.error('[AI Quota Dashboard] Webview 消息处理异常:', err);
         vscode.window.showErrorMessage(
           `Webview 消息处理失败: ${err instanceof Error ? err.message : String(err)}`
         );
