@@ -1,12 +1,12 @@
 {
-  "name": "ai-usage-monitor",
+  "name": "ai-quota-dashboard",
   "displayName": "AI Quota Dashboard",
   "description": "Monitor AI Coding Plan quota usage (GLM, Kimi, etc.)",
   "version": "0.1.0",
   "publisher": "Zheng404",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Zheng404/ai_usage_monitor_vscode"
+    "url": "https://github.com/Zheng404/ai_quota_dashboard_vscode"
   },
   "engines": {
     "vscode": "^1.80.0"
@@ -31,42 +31,42 @@
   "contributes": {
     "commands": [
       {
-        "command": "aiUsageMonitor.refresh",
+        "command": "aiQuotaDashboard.refresh",
         "title": "AI Quota Dashboard:刷新配额",
         "icon": "$(refresh)"
       },
       {
-        "command": "aiUsageMonitor.openDashboard",
+        "command": "aiQuotaDashboard.openDashboard",
         "title": "AI Quota Dashboard:打开配额面板",
         "icon": "$(dashboard)"
       },
       {
-        "command": "aiUsageMonitor.resetData",
+        "command": "aiQuotaDashboard.resetData",
         "title": "AI Quota Dashboard:重置数据"
       },
       {
-        "command": "aiUsageMonitor.openSettings",
+        "command": "aiQuotaDashboard.openSettings",
         "title": "AI Quota Dashboard:打开设置",
         "icon": "$(gear)"
       },
       {
-        "command": "aiUsageMonitor.clearHistory",
+        "command": "aiQuotaDashboard.clearHistory",
         "title": "AI Quota Dashboard:清除历史"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "aiUsageMonitor",
+          "id": "aiQuotaDashboard",
           "title": "AI 配额",
           "icon": "$(pulse)"
         }
       ]
     },
     "views": {
-      "aiUsageMonitor": [
+      "aiQuotaDashboard": [
         {
-          "id": "aiUsageMonitor.dashboardView",
+          "id": "aiQuotaDashboard.dashboardView",
           "name": "配额仪表盘",
           "type": "webview",
           "when": "true"
@@ -76,14 +76,14 @@
     "configuration": {
       "title": "AI Quota Dashboard",
       "properties": {
-        "aiUsageMonitor.refreshInterval": {
+        "aiQuotaDashboard.refreshInterval": {
           "type": "number",
           "default": 600,
           "minimum": 0,
           "description": "自动刷新间隔（秒）。设为 0 禁用自动刷新。",
           "order": 1
         },
-        "aiUsageMonitor.warnThreshold": {
+        "aiQuotaDashboard.warnThreshold": {
           "type": "number",
           "default": 0.8,
           "minimum": 0,
@@ -91,7 +91,7 @@
           "description": "配额预警阈值（0-1）。当配额使用率超过此值时显示警告通知。",
           "order": 2
         },
-        "aiUsageMonitor.afkThreshold": {
+        "aiQuotaDashboard.afkThreshold": {
           "type": "number",
           "default": 3600,
           "minimum": 0,

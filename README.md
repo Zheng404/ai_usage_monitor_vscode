@@ -29,8 +29,8 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/Zheng404/ai_usage_monitor_vscode.git
-cd ai_usage_monitor_vscode
+git clone https://github.com/Zheng404/ai_quota_dashboard_vscode.git
+cd ai_quota_dashboard_vscode
 
 # 安装依赖
 npm install
@@ -179,7 +179,7 @@ pollAll() 定时触发
 | 刷新间隔 | `globalState` | `refreshInterval` |
 | 预警阈值 | `globalState` | `warnThreshold` |
 | AFK 阈值 | `globalState` | `afkThreshold` |
-| 历史数据 | `globalState` | `aiUsageMonitor.history` |
+| 历史数据 | `globalState` | `aiQuotaDashboard.history` |
 
 ## 技术栈
 

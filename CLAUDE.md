@@ -1,4 +1,4 @@
-# ai_usage_monitor_vscode
+# ai_quota_dashboard_vscode
 
 > VSCode 扩展插件 — AI Coding Plan 配额用量仪表盘。实时追踪 GLM Coding Plan、Kimi Membership 等 AI 服务的配额消耗情况，帮助开发者避免超额使用。
 
@@ -222,7 +222,7 @@ interface KimiServiceData extends ServiceData {
 | 刷新间隔 | `globalState` | `refreshInterval` (默认 600s) |
 | 预警阈值 | `globalState` | `warnThreshold` (默认 0.8) |
 | AFK 阈值 | `globalState` | `afkThreshold` (默认 3600s) |
-| 历史数据 | `globalState` | `aiUsageMonitor.history` |
+| 历史数据 | `globalState` | `aiQuotaDashboard.history` |
 
 **注意**：`package.json` 已声明 `configuration` 属性，但代码中配置仍读写 `globalState`，尚未完全接入 VSCode Settings API。设置 UI 仅做展示和修改 globalState。
 
@@ -234,22 +234,22 @@ interface KimiServiceData extends ServiceData {
 
 | 命令 | 功能 | 注册位置 |
 |------|------|---------|
-| `aiUsageMonitor.refresh` | 清空缓存并重新拉取所有服务数据 | extension.ts |
-| `aiUsageMonitor.openDashboard` | 聚焦侧边栏 Webview | extension.ts |
-| `aiUsageMonitor.openSettings` | 聚焦 Webview 并切换到设置标签 | extension.ts |
-| `aiUsageMonitor.resetData` | 删除所有配置、API Key、历史记录 | extension.ts |
-| `aiUsageMonitor.clearHistory` | 仅清除历史数据 | commands/index.ts |
+| `aiQuotaDashboard.refresh` | 清空缓存并重新拉取所有服务数据 | extension.ts |
+| `aiQuotaDashboard.openDashboard` | 聚焦侧边栏 Webview | extension.ts |
+| `aiQuotaDashboard.openSettings` | 聚焦 Webview 并切换到设置标签 | extension.ts |
+| `aiQuotaDashboard.resetData` | 删除所有配置、API Key、历史记录 | extension.ts |
+| `aiQuotaDashboard.clearHistory` | 仅清除历史数据 | commands/index.ts |
 
 ### 内部命令（从 Webview 消息调用）
 
 | 命令 | 功能 |
 |------|------|
-| `aiUsageMonitor.saveService` | 保存单个服务配置 |
-| `aiUsageMonitor.addService` | 添加新服务实例 |
-| `aiUsageMonitor.removeService` | 删除服务实例 |
-| `aiUsageMonitor.saveGlobal` | 保存全局设置 |
-| `aiUsageMonitor.refreshService` | 刷新单个服务（data: { id }) |
-| `aiUsageMonitor.requestDetailRange` | 服务详情懒加载（data: { serviceId, range })，通过 DetailProvider 接口通用化 |
+| `aiQuotaDashboard.saveService` | 保存单个服务配置 |
+| `aiQuotaDashboard.addService` | 添加新服务实例 |
+| `aiQuotaDashboard.removeService` | 删除服务实例 |
+| `aiQuotaDashboard.saveGlobal` | 保存全局设置 |
+| `aiQuotaDashboard.refreshService` | 刷新单个服务（data: { id }) |
+| `aiQuotaDashboard.requestDetailRange` | 服务详情懒加载（data: { serviceId, range })，通过 DetailProvider 接口通用化 |
 
 ---
 

@@ -181,7 +181,7 @@ function setupWebview(ctx: vscode.ExtensionContext) {
 function registerDataCommands(ctx: vscode.ExtensionContext, bar: StatusBar) {
 	// 刷新命令
 	ctx.subscriptions.push(
-		vscode.commands.registerCommand('aiUsageMonitor.refresh', async () => {
+		vscode.commands.registerCommand('aiQuotaDashboard.refresh', async () => {
 			bar.setLoading();
 			cache.clear();
 			serviceData.clear();
@@ -191,7 +191,7 @@ function registerDataCommands(ctx: vscode.ExtensionContext, bar: StatusBar) {
 
 	// 刷新单个服务
 	ctx.subscriptions.push(
-		vscode.commands.registerCommand('aiUsageMonitor.refreshService', async (data: unknown) => {
+		vscode.commands.registerCommand('aiQuotaDashboard.refreshService', async (data: unknown) => {
 			if (!data || typeof data !== 'object') { return; }
 			const d = data as { id: string };
 			const id = typeof d.id === 'string' ? d.id : '';
@@ -203,7 +203,7 @@ function registerDataCommands(ctx: vscode.ExtensionContext, bar: StatusBar) {
 
 	// 请求指定时间范围的详细用量数据
 	ctx.subscriptions.push(
-		vscode.commands.registerCommand('aiUsageMonitor.requestDetailRange', async (data: unknown) => {
+		vscode.commands.registerCommand('aiQuotaDashboard.requestDetailRange', async (data: unknown) => {
 			if (!data || typeof data !== 'object') { return; }
 			const d = data as { serviceId?: string; range?: string };
 			const serviceId = typeof d.serviceId === 'string' ? d.serviceId : '';
@@ -238,7 +238,7 @@ function registerDataCommands(ctx: vscode.ExtensionContext, bar: StatusBar) {
 
 	// 重置所有数据
 	ctx.subscriptions.push(
-		vscode.commands.registerCommand('aiUsageMonitor.resetData', async () => {
+		vscode.commands.registerCommand('aiQuotaDashboard.resetData', async () => {
 			const confirmed = await vscode.window.showWarningMessage(
 				'确定要清除所有数据吗？此操作将删除所有服务配置、API Key 和历史记录，且不可恢复。',
 				{ modal: true },
@@ -260,7 +260,7 @@ function registerDataCommands(ctx: vscode.ExtensionContext, bar: StatusBar) {
 function registerServiceCommands(ctx: vscode.ExtensionContext, bar: StatusBar) {
 	// 保存单个服务
 	ctx.subscriptions.push(
-		vscode.commands.registerCommand('aiUsageMonitor.saveService', async (data: unknown) => {
+		vscode.commands.registerCommand('aiQuotaDashboard.saveService', async (data: unknown) => {
 			if (!data || typeof data !== 'object') { return; }
 			const d = data as SaveServicePayload;
 			const id = typeof d.id === 'string' ? d.id : '';
@@ -279,7 +279,7 @@ function registerServiceCommands(ctx: vscode.ExtensionContext, bar: StatusBar) {
 
 	// 添加服务
 	ctx.subscriptions.push(
-		vscode.commands.registerCommand('aiUsageMonitor.addService', async (data: unknown) => {
+		vscode.commands.registerCommand('aiQuotaDashboard.addService', async (data: unknown) => {
 			if (!data || typeof data !== 'object') { return; }
 			const d = data as AddServicePayload;
 			const defaultKind = getAllDescriptors()[0]?.kind ?? 'glm';
@@ -292,7 +292,7 @@ function registerServiceCommands(ctx: vscode.ExtensionContext, bar: StatusBar) {
 
 	// 删除服务
 	ctx.subscriptions.push(
-		vscode.commands.registerCommand('aiUsageMonitor.removeService', async (data: unknown) => {
+		vscode.commands.registerCommand('aiQuotaDashboard.removeService', async (data: unknown) => {
 			if (!data || typeof data !== 'object') { return; }
 			const d = data as RemoveServicePayload;
 			const id = typeof d.id === 'string' ? d.id : '';
@@ -312,7 +312,7 @@ function registerServiceCommands(ctx: vscode.ExtensionContext, bar: StatusBar) {
 
 function registerSettingsCommands(ctx: vscode.ExtensionContext, bar: StatusBar, loop: () => Promise<void>) {
 	ctx.subscriptions.push(
-		vscode.commands.registerCommand('aiUsageMonitor.saveGlobal', async (data: unknown) => {
+		vscode.commands.registerCommand('aiQuotaDashboard.saveGlobal', async (data: unknown) => {
 			if (!data || typeof data !== 'object') { return; }
 			const d = data as SaveGlobalPayload;
 			const refreshInterval = typeof d.refreshInterval === 'number' ? d.refreshInterval : 600;
@@ -330,15 +330,15 @@ function registerSettingsCommands(ctx: vscode.ExtensionContext, bar: StatusBar, 
 function registerNavigationCommands(ctx: vscode.ExtensionContext) {
 	// 打开配额面板
 	ctx.subscriptions.push(
-		vscode.commands.registerCommand('aiUsageMonitor.openDashboard', () => {
-			vscode.commands.executeCommand('aiUsageMonitor.dashboardView.focus');
+		vscode.commands.registerCommand('aiQuotaDashboard.openDashboard', () => {
+			vscode.commands.executeCommand('aiQuotaDashboard.dashboardView.focus');
 		})
 	);
 
 	// 打开服务设置（仪表盘 + 切换到设置标签）
 	ctx.subscriptions.push(
-		vscode.commands.registerCommand('aiUsageMonitor.openSettings', () => {
-			vscode.commands.executeCommand('aiUsageMonitor.dashboardView.focus');
+		vscode.commands.registerCommand('aiQuotaDashboard.openSettings', () => {
+			vscode.commands.executeCommand('aiQuotaDashboard.dashboardView.focus');
 			if (dashboardViewProvider) {
 				dashboardViewProvider.switchToSettings();
 			}

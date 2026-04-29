@@ -47,4 +47,4 @@
 - Webview JS 为字符串拼接，无类型检查
 - `warnThreshold` 配置声明但未实际触发警告通知
 
-[0.1.0]: https://github.com/Zheng404/ai_usage_monitor_vscode/releases/tag/v0.1.0
+[0.1.0]: https://github.com/Zheng404/ai_quota_dashboard_vscode/releases/tag/v0.1.0

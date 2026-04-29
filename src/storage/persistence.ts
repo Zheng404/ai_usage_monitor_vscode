@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { ServiceData, UsagePoint, ServiceProfile } from '../core/types';
 
-const STORAGE_KEY = 'aiUsageMonitor.history';
+const STORAGE_KEY = 'aiQuotaDashboard.history';
 const MAX_DAYS = 30; // 最多保留30天的历史数据
 
 interface StoredHistory {

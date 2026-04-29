@@ -66,7 +66,7 @@ export class StatusBar {
 			this.emptyItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
 			this.emptyItem.text = '⚙️ 未配置 AI 服务';
 			this.emptyItem.tooltip = this.buildEmptyTooltip();
-			this.emptyItem.command = 'aiUsageMonitor.openSettings';
+			this.emptyItem.command = 'aiQuotaDashboard.openSettings';
 		}
 		this.emptyItem.show();
 	}
@@ -77,7 +77,7 @@ export class StatusBar {
 		md.appendMarkdown('### ⚙️ 未配置 AI 服务\n\n');
 		md.appendMarkdown('请点击下方按钮添加服务，或打开设置页面。\n\n');
 		md.appendMarkdown('---\n\n');
-		md.appendMarkdown('[⚙️ 打开设置](command:aiUsageMonitor.openSettings)');
+		md.appendMarkdown('[⚙️ 打开设置](command:aiQuotaDashboard.openSettings)');
 		return md;
 	}
 
@@ -110,7 +110,7 @@ export class StatusBar {
 				item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
 				item.command = {
 					title: '刷新 ' + d.name,
-					command: 'aiUsageMonitor.refreshService',
+					command: 'aiQuotaDashboard.refreshService',
 					arguments: [{ id: d.id }],
 				};
 				this.items.set(d.id, item);
@@ -185,9 +185,9 @@ export class StatusBar {
 			md.appendMarkdown(`### ❌ ${d.name}\n\n`);
 			md.appendMarkdown(`${d.err}\n\n`);
 			md.appendMarkdown(`---\n\n`);
-			md.appendMarkdown(`[🔄 刷新](command:aiUsageMonitor.refreshService?${encodeURIComponent(JSON.stringify({ id: d.id }))})`);
+			md.appendMarkdown(`[🔄 刷新](command:aiQuotaDashboard.refreshService?${encodeURIComponent(JSON.stringify({ id: d.id }))})`);
 			md.appendMarkdown(` | `);
-			md.appendMarkdown(`[📊 打开仪表盘](command:aiUsageMonitor.openDashboard)`);
+			md.appendMarkdown(`[📊 打开仪表盘](command:aiQuotaDashboard.openDashboard)`);
 			return md;
 		}
 
@@ -195,7 +195,7 @@ export class StatusBar {
 		if (!renderer) {
 			md.appendMarkdown(`### ⚠️ ${d.name}\n\n`);
 			md.appendMarkdown(`服务类型 \`${d.kind}\` 未注册状态栏渲染器。请在 ServiceDescriptor 中提供 \`statusBarRenderer\`。\n\n`);
-			md.appendMarkdown(`[⚙️ 设置](command:aiUsageMonitor.openSettings)`);
+			md.appendMarkdown(`[⚙️ 设置](command:aiQuotaDashboard.openSettings)`);
 			return md;
 		}
 
@@ -245,11 +245,11 @@ export class StatusBar {
 
 		// 操作按钮
 		md.appendMarkdown(`---\n\n`);
-		md.appendMarkdown(`[📊 仪表盘](command:aiUsageMonitor.openDashboard)`);
+		md.appendMarkdown(`[📊 仪表盘](command:aiQuotaDashboard.openDashboard)`);
 		md.appendMarkdown(` | `);
-		md.appendMarkdown(`[⚙️ 设置](command:aiUsageMonitor.openSettings)`);
+		md.appendMarkdown(`[⚙️ 设置](command:aiQuotaDashboard.openSettings)`);
 		md.appendMarkdown(` | `);
-		md.appendMarkdown(`[🔄 刷新](command:aiUsageMonitor.refreshService?${encodeURIComponent(JSON.stringify({ id: d.id }))})`);
+		md.appendMarkdown(`[🔄 刷新](command:aiQuotaDashboard.refreshService?${encodeURIComponent(JSON.stringify({ id: d.id }))})`);
 
 		return md;
 	}

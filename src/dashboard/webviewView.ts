@@ -15,7 +15,7 @@ export interface SettingsData {
 export class DashboardWebviewViewProvider
   implements vscode.WebviewViewProvider
 {
-  public static readonly viewType = "aiUsageMonitor.dashboardView";
+  public static readonly viewType = "aiQuotaDashboard.dashboardView";
 
   private view?: vscode.WebviewView;
   private data = new Map<string, ServiceData>();
@@ -49,17 +49,17 @@ export class DashboardWebviewViewProvider
             this.update(this.data, this.settings);
             return;
           case "refresh":
-            vscode.commands.executeCommand("aiUsageMonitor.refresh");
+            vscode.commands.executeCommand("aiQuotaDashboard.refresh");
             return;
           case "refreshService":
             vscode.commands.executeCommand(
-              "aiUsageMonitor.refreshService",
+              "aiQuotaDashboard.refreshService",
               message.data,
             );
             return;
           case "requestDetailRange":
             vscode.commands.executeCommand(
-              "aiUsageMonitor.requestDetailRange",
+              "aiQuotaDashboard.requestDetailRange",
               message.data,
             );
             return;
@@ -69,7 +69,7 @@ export class DashboardWebviewViewProvider
           case "removeService":
           case "resetData":
             vscode.commands.executeCommand(
-              `aiUsageMonitor.${message.command}`,
+              `aiQuotaDashboard.${message.command}`,
               message.data,
             );
             return;
