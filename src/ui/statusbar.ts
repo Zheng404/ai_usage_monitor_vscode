@@ -235,7 +235,7 @@ export class StatusBar {
 			md.appendMarkdown(`${bar}\n\n`);
 
 			if (q.used != null && q.limit != null) {
-				md.appendMarkdown(`已调用次数: ${fmtNum(q.used)} \u00a0\u00a0\u00a0\u00a0 总量: ${fmtNum(q.limit)}\n\n`);
+				md.appendMarkdown(`已使用: ${fmtNum(q.used)} \u00a0\u00a0\u00a0\u00a0 总额度: ${fmtNum(q.limit)}\n\n`);
 			}
 
 			if (q.resetsAt) {

@@ -12,8 +12,10 @@ function register(descriptor: ServiceDescriptor): void {
 // 注册所有已知服务（新增服务只需在此添加一行 import + register）
 import { glmDescriptor } from './glm';
 import { kimiDescriptor } from './kimi';
+import { mimoDescriptor } from './mimo';
 register(glmDescriptor);
 register(kimiDescriptor);
+register(mimoDescriptor);
 
 /** 获取服务描述符，未知 kind 会抛异常 */
 export function getDescriptor(kind: ServiceId): ServiceDescriptor {
